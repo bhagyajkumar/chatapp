@@ -1,9 +1,11 @@
 import json
-from flask import Flask,  render_template, request
+from flask import Flask,  render_template, request, url_for
 from flask_socketio import SocketIO
 import os
 
-app = Flask(__name__)
+from werkzeug import debug
+
+app = Flask(__name__, static_folder='./static/')
 
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY") or "thisissecret"
 
@@ -38,8 +40,7 @@ def message_handle(msg):
     }
     json_data = json.dumps(data)
     sio.send(json_data)
-    print(msg)
 
 
 if __name__ == "__main__":
-    sio.run(app)
+    sio.run(app, debug=True)

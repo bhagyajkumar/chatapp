@@ -51,21 +51,16 @@ $(document).ready(() => {
 
     function othersMessageView(author, message) {
         return `
-        <div class="incoming_msg">
-        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-        <div class="received_msg">
-            <div class="received_withd_msg">
-                <span>${escapeHtml(author)}</span>
-                <p>${escapeHtml(message)}</p>
-            </div>
+        <div class="alert message-box message-incoming  alert-success bg-secondary text-light">
+            <h6>${escapeHtml(author)}</h6>
+            <p>${escapeHtml(message)}</p>
         </div>
         `
     }
 
     function ownMessageView(message) {
         return `
-        <div class="outgoing_msg">
-        <div class="sent_msg">
+        <div class="alert message-box message-outgoing alert-success bg-primary text-light">
             <p>${escapeHtml(message)}</p>
         </div>
         `
